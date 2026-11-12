@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My To-Do App</title>
+<style>
+body{font-family:Arial;background:#111;color:white;padding:20px;text-align:center}
+input{padding:12px;width:70%;border-radius:10px;border:none;font-size:16px}
+button{padding:12px 18px;border:none;border-radius:10px;background:#00e676;color:black;font-weight:bold;font-size:16px;margin-top:10px}
+li{background:#222;padding:12px;margin:8px 0;border-radius:10px;list-style:none;display:flex;justify-content:space-between}
+.done{text-decoration:line-through;opacity:0.5}
+</style>
+</head>
+<body>
+<h1>✅ MY TO-DO APP</h1>
+<p>Day 3 - Built by me</p>
+<input id="task" placeholder="Type a task... e.g go gym">
+<br><button onclick="add()">Add Task +</button>
+<ul id="list"></ul>
+<script>
+function add(){
+  let t=document.getElementById('task').value;
+  if(!t) return;
+  let li=document.createElement('li');
+  li.innerHTML=t+' <span><button onclick="this.parentElement.parentElement.classList.toggle(\'done\')">Done</button> <button onclick="this.parentElement.parentElement.remove()">X</button></span>';
+  document.getElementById('list').appendChild(li);
+  document.getElementById('task').value='';
+}
+</script>
+</body>
+</html>
